@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('template')
 
 @section('title', 'Halaman Jurusan')
 

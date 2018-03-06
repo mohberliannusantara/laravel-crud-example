@@ -1,20 +1,20 @@
-@extends('template.index')
+@extends('template')
 
 @section('title', 'Tambah Jurusan')
 
 @section('content')
     <form action="/jurusan" method="post">
         @csrf
-        <div class="row">
-            <div class="col-md-4">
-                <input type="text" name="nama" class="form-control" id="" value="{{ old('nama') }}" placeholder="Nama Jurusan">
-                @if($errors->has('nama'))
-                    <p align="left"><b>{{ $errors->first('nama') }}</b></p>
-                @endif
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-block btn-success">Simpan</button>
-            </div>
+        {{-- Input Nama --}}
+        <div class="form-group">
+            <label for="nama">Nama Jurusan</label>
+            <input type="text" name="nama" id="nama" class="form-control" value="{{ old('nama') }}" placeholder="Nama Jurusan">
+            @if($errors->has('nama'))
+                <small class="text-danger">{{ $errors->first('nama') }}</small>
+            @endif
         </div>
+
+        {{-- Input Submit --}}
+        <button type="submit" class="btn btn-success">Simpan</button>
     </form>
 @endsection
